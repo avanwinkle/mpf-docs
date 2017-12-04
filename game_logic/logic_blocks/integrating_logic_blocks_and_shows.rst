@@ -1,13 +1,13 @@
 Integrating Logic_Blocks and Shows
 ==================================
 
-Logic_blocks can be flexibly integrated with shows using the (name)_updated event.
+Logic_blocks can be flexibly integrated with shows using the *(name)_updated* event.
 It is posted on every state change (i.e. when a counter is incremented) and when
 logic_blocks are restored (on mode restart). This means that the event may be posted
 more than once and all handlers should be idempotent (i.e. that you can execute them more
-than once without changing state after the first time). Therefore, this event should
-not be used for scoring. However, it works well to control shows, lights, slides and
-restore them on the next ball.
+than once without changing state after the first time). This event works well to control 
+shows, lights, slides, and to restore them on the next ball. However it should not be used 
+for scoring (to handle an event when the counter changes, consider the *(name)_hit* event instead).
 
 .. code-block:: yaml
 
